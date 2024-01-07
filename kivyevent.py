@@ -8,10 +8,22 @@ class Mylayout(BoxLayout):
     def __init__(self):
         super().__init__()
         self.button = Button(text ='press me')
+        self.button.bind(on_press = self.new_label)
         self.add_widget(self.button)
+       
+    
+    def new_label(self,button):
+         self.label = Label(text = 'my new label')
+         self.add_widget(self.label)
+         self.remove_widget(button)
+         
 class MyApp(App):
     def build(self):
              return Mylayout()
+    
+#if __name__ == '__main__':
+ #   MyApp.run()
+
         
         
 
